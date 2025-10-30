@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EnerApp Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Últimas mediciones del sistema PZEM-004T</h1>
+  <table>
+    <tr>
+      <th>Voltaje (V)</th><th>Corriente (A)</th><th>Potencia (W)</th>
+      <th>Energía (Wh)</th><th>Frecuencia (Hz)</th><th>FP</th><th>Hora</th>
+    </tr>
+    {% for m in data %}
+    <tr>
+      <td>{{ m.voltage }}</td>
+      <td>{{ m.current }}</td>
+      <td>{{ m.power }}</td>
+      <td>{{ m.energy }}</td>
+      <td>{{ m.frequency }}</td>
+      <td>{{ m.pf }}</td>
+      <td>{{ m.timestamp }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
